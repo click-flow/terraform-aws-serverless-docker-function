@@ -1,5 +1,5 @@
 variable "config_file" {
-        default = "${path.module}/config.bash"
+        default = ""
         type = string
 }
 

@@ -2,7 +2,7 @@ module "config" {
 	source  = "click-flow/file-content-to-object/local"
 	version = "0.0.2"
 
-	filename = var.config_file
+	filename = length(var.config_file) > 0 ? var.config_file : "${path.module}/config.bash"
 }
 
 module "docker-image" {
