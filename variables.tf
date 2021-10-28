@@ -23,3 +23,9 @@ variable "function_version" {
 	description = "The version you want to give you AWS Lambda function."
 	type = string
 }
+
+variable "function_memory_size" {
+	default = 128
+	description =  "In 64 MB increments from 128 MB to 10240 MB, how much memory is allocated to your AWS Lambda function."
+	type = number
+}

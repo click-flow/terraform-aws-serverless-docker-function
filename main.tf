@@ -15,6 +15,7 @@ module "lambda" {
 	environment_variables = var.environment_variables
 	function_name = var.function_name
 	image_uri = module.docker-image.image_uri
+	memory_size = var.function_memory_size
 	package_type = "Image"
 	timeout = var.function_timeout
 }
