@@ -1,5 +1,6 @@
 module "docker-image" {
 	source = "terraform-aws-modules/lambda/aws//modules/docker-build"
+	version = "~> 2.29"
 
 	create_ecr_repo = true
 	ecr_repo = var.function_name
@@ -9,7 +10,7 @@ module "docker-image" {
 
 module "lambda" {
 	source = "terraform-aws-modules/lambda/aws"
-	version = "~> 2.17"
+	version = "~> 2.29"
 
 	create_package = false
 	environment_variables = var.environment_variables
