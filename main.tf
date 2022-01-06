@@ -4,6 +4,20 @@ module "docker-image" {
 
 	create_ecr_repo = true
 	ecr_repo = var.function_name
+	ecr_repo_lifecycle_policy = jsonencode({
+		rules = [
+			{
+				action = { type = "expire" }
+				description = "Keep only the last 2 images"
+				rulePriority = 1
+				selection = {
+					countNumber = 2
+					countType = "imageCountMoreThan"
+					tagStatus = "any"
+				}
+			}
+		]
+	})
 	image_tag = var.function_version
 	source_path = var.docker_build
 }
